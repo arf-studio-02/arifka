@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* BODY */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    background: #eae6df;
+}
+
+/* 🌊 Background */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('assets/bg.jpeg') center/cover no-repeat;
+    z-index: -1;
+}
+
+

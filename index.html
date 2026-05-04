@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arf.Store</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="content">
+
+        <div class="logo">
+    <img src="assets/foto.png" id="logoImg">
+</div>
+
+<!-- Popup -->
+<div class="overlay" id="overlay"></div>
+
+<div id="popup" class="popup">
+    <span id="closeBtn">&times;</span>
+    <img id="popupImg" src="assets/foto.png">
+</div>
+
+        <div class="brand">
+            <h2>ARIFKA PURWANTOMO</h2>
+            <p>I'm electrical engineering</p>
+        </div>
+
+
+        <div class="buttons">
+            <a href="profile.html" target="_blank" class="btn">
+                <i class="fa-solid fa-user"></i> Profile
+            </a>
+            <a href="https://www.linkedin.com/in/arifka-purwantomo-844751221?" class="btn"><i class="fa-brands fa-linkedin"></i> Linkedin</a>
+            <a href="https://www.instagram.com/arifka.02?" class="btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.tiktok.com/@arifkapurwantomo" class="btn"><i class="fa-brands fa-tiktok"></i> Tiktok</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arifpurwantomo@gmail.com" target="_blank" class="btn">
+                <i class="fa-solid fa-envelope"></i> Gmail
+            </a>
+            <a href="#" class="btn" id="igBtn">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+            <p id="notif"></p>
+            
+        </div>
+
+    </div>
+
+</div>
+<!-- BOTTOM BAR -->
+<div id="bottom-bar-container"></div>
+
+<script> 
+const logo = document.getElementById("logoImg");
+const popup = document.getElementById("popup");
+const popupImg = document.getElementById("popupImg");
+const overlay = document.getElementById("overlay");
+const closeBtn = document.getElementById("closeBtn");
+
+
+logo.onclick = () => {
+    console.log("LOGO CLICKED");
+    popup.classList.add("active");
+    overlay.classList.add("active");
+
+    popupImg.src = logo.src;
+    document.body.style.overflow = "hidden";
+};
+
+function closePopup() {
+    popup.classList.add("closing");
+
+    setTimeout(() => {
+        popup.classList.remove("active", "closing");
+        overlay.classList.remove("active");
+        document.body.style.overflow = "auto";
+    }, 250); // sesuai durasi animasi
+}
+
+closeBtn.onclick = closePopup;
+overlay.onclick = closePopup;
+
+const btn = document.getElementById("igBtn");
+const notif = document.getElementById("notif");
+
+btn.addEventListener("click", (e) => {
+    e.preventDefault(); // 🔥 penting biar ga pindah halaman
+
+    notif.innerText = "DM ke Instagram untuk nomor WA";
+    notif.classList.add("show");
+
+    setTimeout(() => {
+        notif.classList.remove("show");
+    }, 2000);
+});
+
+</script>
+
+</script>
+</body>
+</html>
